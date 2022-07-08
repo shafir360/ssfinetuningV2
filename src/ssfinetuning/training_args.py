@@ -337,13 +337,13 @@ def train_with_ssl(dataset=None,
         kwargs_model = extract_keys(SSLModel, kwargs_ssl)
 
         if use_sup is True:
-            model_ssl = SSLModel(model_name=best_model_checkpoint, supervised_run=True, **kwargs_model)
+            model_ssl = SSLModel(model_name=best_model_checkpoint, supervised_run=True,num_labels =num_labels, **kwargs_model)
 
         elif teacher_student_name is not None:
-            model_ssl = SSLModel(teacher_student_name=teacher_student_name, **kwargs_model)
+            model_ssl = SSLModel(teacher_student_name=teacher_student_name,num_labels =num_labels, **kwargs_model)
 
         else:
-            model_ssl = SSLModel(model_name=model_name, **kwargs_model)
+            model_ssl = SSLModel(model_name=model_name,num_labels =num_labels ,**kwargs_model)
 
         args_ta = da_obj.get_default_ta(logging_dir) if args_ta_in_keys is None else args_ta_in_keys.copy()
 
