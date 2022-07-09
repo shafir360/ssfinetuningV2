@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="ssfinetuning",
+    name="ssfinetuningV2",
     version="0.2.1",
     author="Ankush Checkervarty",
     author_email="ankushc48@gmail.com",
