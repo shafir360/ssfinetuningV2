@@ -50,7 +50,10 @@ def encode(dataset, model_name='albert-base-v2', text_column_name='sentence'):
 
     """
 
-    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+    try:
+      tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+    except:
+      tokenizer = AutoTokenizer.from_pretrained('cardiffnlp/twitter-xlm-roberta-base-sentiment',model_max_length=512 )
 
     def preprocess_function(examples):
         return tokenizer(examples[text_column_name], truncation=True)
