@@ -303,7 +303,9 @@ def train_with_ssl(dataset=None,
     if run_sup:
 
         model_sup = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_labels)
-
+        print("supervised args are")
+        print(type(args_ta_sup))
+        print(args_ta_sup)
         trainer_sup = Trainer(
             model_sup,
             args_ta_sup,
